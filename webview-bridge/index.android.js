@@ -15,9 +15,10 @@
 
 var React = require('react');
 var ReactNative = require('react-native');
-var createReactClass = require('create-react-class');
 var invariant = require('invariant');
 var keyMirror = require('keymirror');
+var createReactClass = require('create-react-class');
+
 var resolveAssetSource = require('react-native/Libraries/Image/resolveAssetSource');
 
 var {
@@ -27,7 +28,6 @@ var {
   StyleSheet,
   Text,
   View,
-  ViewPropTypes,
   WebView,
   requireNativeComponent,
   DeviceEventEmitter,
@@ -35,7 +35,6 @@ var {
     WebViewBridgeManager
   }
 } = ReactNative;
-var PropTypes = require('prop-types');
 
 var RCT_WEBVIEWBRIDGE_REF = 'webviewbridge';
 
@@ -51,15 +50,6 @@ var RCTWebViewBridge = requireNativeComponent('RCTWebViewBridge', WebViewBridge)
  * Renders a native WebView.
  */
 var WebViewBridge = createReactClass({
-
-  propTypes: {
-    ...RCTWebViewBridge.propTypes,
-
-    /**
-     * Will be called once the message is being sent from webview
-     */
-    onBridgeMessage: PropTypes.func,
-  },
 
   getInitialState: function() {
     return {
